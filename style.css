@@ -67,14 +67,68 @@ a {
   color: #93c5fd;
 }
 
+.top-phone {
+  gap: 0;
+  padding: 3px;
+  border: 1px solid rgba(191, 219, 254, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.top-phone i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #0f2f57;
+  background: #bfdbfe;
+  box-shadow: 0 8px 18px rgba(147, 197, 253, 0.28);
+}
+
+.top-phone a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px 0 10px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.top-phone a span {
+  white-space: nowrap;
+}
+
+.top-phone:hover,
+.top-phone:focus-within {
+  border-color: rgba(219, 234, 254, 0.76);
+  background: var(--color-brand);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.32);
+  transform: translateY(-1px);
+}
+
+.top-phone:hover i,
+.top-phone:focus-within i {
+  color: var(--color-brand-dark);
+  background: #ffffff;
+}
+
 .top-icon a,
 .top-social a {
   color: inherit;
   transition: color 0.2s ease;
 }
 
-.top-icon a:hover,
-.top-icon a:focus {
+.top-icon:not(.top-phone) a:hover,
+.top-icon:not(.top-phone) a:focus {
   color: #bfdbfe;
 }
 
@@ -407,6 +461,118 @@ a {
   transform: translateY(-1px);
 }
 
+.banner-bottom {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #eef5ff 100%);
+}
+
+.banner-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--color-line);
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.section-heading span {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: var(--color-brand-dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #132238;
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.bottom-box {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #d6e4fb;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 47, 87, 0.08);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bottom-box:hover {
+  border-color: #9fc3fb;
+  box-shadow: 0 24px 54px rgba(37, 99, 235, 0.15);
+  transform: translateY(-5px);
+}
+
+.bottom-box img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.bottom-box-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 210px;
+  padding: 36px 22px 24px;
+}
+
+.bottom-box-icon {
+  position: absolute;
+  top: -25px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--color-brand);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.26);
+}
+
+.bottom-box-icon i {
+  font-size: 1.2rem;
+}
+
+.bottom-box h3 {
+  margin: 0 0 12px;
+  color: #14253d;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.bottom-box p {
+  margin: 0;
+  color: #526173;
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
 .whatsapp-float {
   position: fixed;
   right: 22px;
@@ -569,6 +735,19 @@ a {
   .banner-btn {
     width: 100%;
   }
+
+  .section-heading {
+    margin-bottom: 26px;
+    text-align: left;
+  }
+
+  .section-heading h2 {
+    font-size: 2.15rem;
+  }
+
+  .bottom-box-body {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -592,6 +771,14 @@ a {
 
   .top-icon a {
     overflow-wrap: anywhere;
+  }
+
+  .top-phone {
+    max-width: none;
+  }
+
+  .top-phone a {
+    overflow-wrap: normal;
   }
 
   .bottom-bar .container {
@@ -622,6 +809,10 @@ a {
   .nav-btn,
   .banner-btn {
     font-size: 0.94rem;
+  }
+
+  .section-heading h2 {
+    font-size: 1.8rem;
   }
 
   .banner-slide {
