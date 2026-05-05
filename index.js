@@ -1,1 +1,56 @@
-document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector("#navbarSupportedContent"),t=document.querySelectorAll(".navbar-collapse .nav-link, .navbar-collapse .nav-btn");if(e&&"undefined"!=typeof bootstrap){const n=bootstrap.Collapse.getOrCreateInstance(e,{toggle:!1});t.forEach(e=>{e.addEventListener("click",()=>{window.innerWidth<1200&&n.hide()})})}const o=document.querySelector("#quoteForm");if(o&&o.addEventListener("submit",e=>{e.preventDefault();const t=new FormData(o);window.open(`https://wa.me/5548991447569?text=${encodeURIComponent(["Ola, gostaria de solicitar um orcamento.",`Nome: ${t.get("name")}`,`Telefone: ${t.get("phone")}`,`Servico: ${t.get("service")}`,`Mensagem: ${t.get("message")}`].join("\n"))}`,"_blank")}),document.querySelector(".project-grid")){const e=document.querySelector(".project-grid");let t=null;const n=()=>{requestAnimationFrame(()=>{const o=e.querySelector(".project-item")?.offsetWidth||320,r=16,c=e.scrollLeft+o+r;e.scrollWidth-e.clientWidth<=c+10?e.scrollLeft=0:e.scrollLeft+=o+r})},r=()=>{t=setInterval(n,3500)};e.addEventListener("mouseenter",()=>{clearInterval(t),t=null}),e.addEventListener("mouseleave",r),e.addEventListener("touchstart",()=>{clearInterval(t),t=null},{passive:!0}),e.addEventListener("touchend",r),r()}})
+document.addEventListener("DOMContentLoaded", () => {
+  const e = document.querySelector("#navbarSupportedContent"),
+    t = document.querySelectorAll(
+      ".navbar-collapse .nav-link, .navbar-collapse .nav-btn",
+    );
+  if (e && "undefined" != typeof bootstrap) {
+    const n = bootstrap.Collapse.getOrCreateInstance(e, { toggle: !1 });
+    t.forEach((e) => {
+      e.addEventListener("click", () => {
+        window.innerWidth < 1200 && n.hide();
+      });
+    });
+  }
+  const o = document.querySelector("#quoteForm");
+  if (
+    (o &&
+      o.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const t = new FormData(o);
+        window.open(
+          `https://wa.me/5548991447569?text=${encodeURIComponent(["Ola, gostaria de solicitar um orcamento.", `Nome: ${t.get("name")}`, `Telefone: ${t.get("phone")}`, `Servico: ${t.get("service")}`, `Mensagem: ${t.get("message")}`].join("\n"))}`,
+          "_blank",
+        );
+      }),
+    document.querySelector(".project-grid"))
+  ) {
+    const e = document.querySelector(".project-grid");
+    let t = null;
+    const n = () => {
+        requestAnimationFrame(() => {
+          const o = e.querySelector(".project-item")?.offsetWidth || 320,
+            r = 16,
+            c = e.scrollLeft + o + r;
+          e.scrollWidth - e.clientWidth <= c + 10
+            ? (e.scrollLeft = 0)
+            : (e.scrollLeft += o + r);
+        });
+      },
+      r = () => {
+        t = setInterval(n, 3500);
+      };
+    (e.addEventListener("mouseenter", () => {
+      (clearInterval(t), (t = null));
+    }),
+      e.addEventListener("mouseleave", r),
+      e.addEventListener(
+        "touchstart",
+        () => {
+          (clearInterval(t), (t = null));
+        },
+        { passive: !0 },
+      ),
+      e.addEventListener("touchend", r),
+      r());
+  }
+});
