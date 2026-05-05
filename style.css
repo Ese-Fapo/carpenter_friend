@@ -1377,11 +1377,19 @@ a {
 
 @media (max-width: 767.98px) {
   .top-bar .container {
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .top-social {
-    display: none;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+
+  .top-social ul {
+    justify-content: flex-start;
   }
 
   .banner-slide {
