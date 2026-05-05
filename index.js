@@ -53,4 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
       e.addEventListener("touchend", r),
       r());
   }
+  
+  // Hide top bar on scroll, keep main navbar visible
+  let lastScrollY = 0;
+  const header = document.querySelector(".header");
+  
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 50) {
+      // Scrolling down
+      header.classList.add("hide-top-bar");
+    } else {
+      // Near top
+      header.classList.remove("hide-top-bar");
+    }
+    
+    lastScrollY = currentScrollY;
+  }, { passive: true });
 });
